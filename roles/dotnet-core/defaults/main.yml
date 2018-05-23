@@ -1,0 +1,4 @@
+---
+# Variables for dotnet-core role.
+
+dotnet_runtime_version: dotnet-runtime-2.0.7

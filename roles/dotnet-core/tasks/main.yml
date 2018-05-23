@@ -1,0 +1,27 @@
+---
+# Tasks for dotnet-core role.
+
+- name: Copy microsoft dotnet core repository file
+  copy:
+    src: packages-microsoft-prod.rpm
+    dest: /tmp/packages-microsoft-prod.rpm
+
+- name: Install Microsoft dotnet repository 
+  yum:
+    name: /tmp/packages-microsoft-prod.rpm
+    state: present
+
+- name: Install libicu 
+  yum:
+    name: "libicu"
+    state: present
+
+- name: Install libunwind
+  yum:
+    name: "libunwind"
+    state: present
+
+- name: Install dotnet runtime
+  yum:
+    name: "{{ dotnet_runtime_version }}"
+    state: present
