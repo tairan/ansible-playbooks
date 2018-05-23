@@ -1,14 +1,9 @@
 ---
 # Tasks for dotnet-core role.
 
-- name: Copy microsoft dotnet core repository file
-  copy:
-    src: packages-microsoft-prod.rpm
-    dest: /tmp/packages-microsoft-prod.rpm
-
-- name: Install Microsoft dotnet repository 
+- name: Install repo for dotnet core 
   yum:
-    name: /tmp/packages-microsoft-prod.rpm
+    name: https://packages.microsoft.com/config/rhel/7/packages-microsoft-prod.rpm
     state: present
 
 - name: Install libicu 
