@@ -1,2 +1,7 @@
 ---
 # default variables for postgresql
+
+postgresql_service_name: postgresql
+postgresql_admin_user: postgres
+postgresql_database_owner: "{{ postgresql_admin_user }}"
+postgresql_locale: "en_US.UTF-8"
