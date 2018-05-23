@@ -1,0 +1,25 @@
+---
+
+- name: Install dependencies
+  yum:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - curl
+    - java-1.8.0-openjdk
+
+- name: Ensure Jenkins repos is installed.
+  get_url:
+    url: "{{ jenkins_repo_url }}"
+    dest: /etc/yum.repos.d/jenkins.repo
+
+- name: Add Jenkins repo GPG key.
+  rpm_key:
+    state: present
+    key: "{{ jenkins_repo_key_url }}"
+
+- name: Ensure Jenkins is installed
+  yum:
+    name: jenkins
+    state: present
+    
