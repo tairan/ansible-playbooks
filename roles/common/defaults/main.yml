@@ -1,0 +1,7 @@
+---
+  # Varibales for common role.
+
+ntpserver0: 0.cn.pool.ntp.org
+ntpserver1: 1.cn.pool.ntp.org
+ntpserver2: 2.cn.pool.ntp.org
+ntpserver3: 3.cn.pool.ntp.org 

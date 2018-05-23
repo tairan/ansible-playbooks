@@ -1,7 +1,7 @@
 ---
 # This role contains common plays that will run all nodes.
 
-- name: install epel
+- name: Install epel
   yum:
     name: epel-release
     state: present
