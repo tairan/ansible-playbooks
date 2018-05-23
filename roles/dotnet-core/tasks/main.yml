@@ -6,15 +6,13 @@
     name: https://packages.microsoft.com/config/rhel/7/packages-microsoft-prod.rpm
     state: present
 
-- name: Install libicu 
+- name: Install dependencies 
   yum:
-    name: "libicu"
+    name: "{{ item }}"
     state: present
-
-- name: Install libunwind
-  yum:
-    name: "libunwind"
-    state: present
+  with_items:
+    - libicu
+    - libunwind
 
 - name: Install dotnet runtime
   yum:
