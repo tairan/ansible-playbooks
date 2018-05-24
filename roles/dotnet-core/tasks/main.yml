@@ -1,12 +1,12 @@
 ---
 # Tasks for dotnet-core role.
 
-- name: Install repo for dotnet core 
+- name: install repo for dotnet core 
   yum:
     name: https://packages.microsoft.com/config/rhel/7/packages-microsoft-prod.rpm
     state: present
 
-- name: Install dependencies 
+- name: install dotnet core dependencies 
   yum:
     name: "{{ item }}"
     state: present
@@ -14,7 +14,7 @@
     - libicu
     - libunwind
 
-- name: Install dotnet runtime
+- name: install dotnet runtime
   yum:
     name: "{{ dotnet_runtime_version }}"
     state: present

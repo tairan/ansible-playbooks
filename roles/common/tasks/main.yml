@@ -1,18 +1,18 @@
 ---
 # This role contains common plays that will run all nodes.
 
-- name: Install epel
+- name: install epel
   yum:
     name: epel-release
     state: present
 
-- name: Install ntp
+- name: install ntp
   yum:
     name: ntp
     state: present
   tags: ntp
 
-- name: Configure ntp file
+- name: configure ntp file
   template:
     src: ntp.conf.j2
     dest: /etc/ntp.conf
@@ -20,7 +20,7 @@
   notify:
     - restart ntp
 
-- name: Start the ntp service
+- name: start the ntp service
   service:
     name: ntpd 
     state: started

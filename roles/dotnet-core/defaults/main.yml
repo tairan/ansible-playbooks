@@ -2,3 +2,4 @@
 # Variables for dotnet-core role.
 
 dotnet_runtime_version: dotnet-runtime-2.0.7
+dotnet_sdk_version: dotnet-sdk-2.1.200

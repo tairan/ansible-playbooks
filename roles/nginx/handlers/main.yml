@@ -1,7 +1,7 @@
 ---
 # handlers for nginx roles
 
-- name: Restart Nginx
+- name: restart nginx
   service:
     name: nginx
     state: restarted

@@ -1,12 +1,12 @@
 ---
 # Tasks for postgresql
 
-- name: Install repo for PostgreSQL 10
+- name: install repo for postgrelsql10
   yum:
     name: https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm
     state: present
 
-- name: Install PostgreSQL
+- name: install postgresql10
   yum:
     name: "{{ item }}"
     state: latest
@@ -18,7 +18,11 @@
 - stat: path=/var/lib/pgsql/10/data
   register: postgresql_data_dir
 
-- name: Initialize database
+- name: initialize database
   command: /usr/pgsql-10/bin/postgresql-10-setup initdb
-  notify: restart postgresql
   when: postgresql_data_dir.stat.exists == False
+
+- name: start postgresql
+  service:
+    name: "{{ postgresql_service_name }}"
+    state: started
