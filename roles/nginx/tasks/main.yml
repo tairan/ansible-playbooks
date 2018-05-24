@@ -5,3 +5,13 @@
   yum:
     name: nginx
     state: present
+
+- name: open port for web server
+  firewalld:
+    service: "{{ item }}"
+    permanent: true
+    state: enabled
+    immediate: yes
+  with_items:
+    - http
+    - https
