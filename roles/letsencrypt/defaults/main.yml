@@ -1,0 +1,13 @@
+---
+
+letsencrypt_email: admin@example.com
+letsencrypt_domains: []
+
+letsencrypt_bind_port: 443
+letsencrypt_challenge: tls-sni-01
+
+letsencrypt_firewall: false
+
+letsencrypt_autorenew: true
+letsencrypt_webroot: /var/wwww
+letsencrypt_http_server: nginx
