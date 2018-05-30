@@ -1,0 +1,32 @@
+---
+# tasks file for zabbix-server
+
+- import_role:
+    name: zabbix-common
+
+- name: install zabbix server dependenices
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - zabbix-server-pgsql
+    - postgresql
+    - python-psycopg2
+  notify:
+    - start zabbix server
+
+    
+- name: create zabbix database user
+  postgresql_user:
+    db: "{{ zabbix_database_name }}"
+    user: "{{ zabbix_database_username }}"
+    password: "{{ zabbix_database_password }}"
+    login_host: "{{ zabbix_database_host }}"
+
+- name: create zabbix database
+  postgresql_db:
+    name: "{{ zabbix_database_name }}"
+    encoding: UTF-8
+    state: present
+    login_host: "{{ zabbix_database_host }}"
+    login_user: "{{ zabbix_database_username }}"

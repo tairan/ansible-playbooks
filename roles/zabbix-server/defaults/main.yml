@@ -1,0 +1,7 @@
+---
+# defaults file for zabbix-server
+
+zabbix_database_host: localhost
+zabbix_database_username: postgres
+zabbix_database_password: NULL
+zabbix_database_name: zabbix
