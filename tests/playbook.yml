@@ -1,0 +1,11 @@
+---
+
+- hosts: all
+  roles:
+    - common
+    - dotnet-core
+    - jenkins
+    - letsencrypt
+    - nginx
+    - postgresql
+    - redis

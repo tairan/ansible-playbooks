@@ -1,0 +1,6 @@
+---
+
+- name: install cerbot for nginx
+  yum:
+    name: cerbot-nginx
+    state: present
